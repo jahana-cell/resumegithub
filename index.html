@@ -129,16 +129,18 @@
 </head>
 <body data-theme="light">
 
-    <div class="max-w-6xl mx-auto my-4 sm:my-8 p-4 sm:p-6 lg:p-8 bg-[var(--card-bg)] rounded-2xl shadow-2xl print-container">
-        <header class="flex flex-col md:flex-row justify-between items-center text-center md:text-left mb-12">
+    <div class="max-w-6xl mx-auto my-4 sm:my-8 p-4 sm:p-6 lg:p-8 bg-[var(--card-bg)] rounded-2xl shadow-2xl print-container relative">
+        
+        <div class="absolute top-4 right-4 z-10">
+            <button id="theme-toggle" title="Toggle Theme" class="p-2 rounded-full hover:bg-[var(--border-color)] text-[var(--text-muted)] no-print">
+                <i data-lucide="sun" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <header class="flex flex-col md:flex-row items-center text-center md:text-left mb-12">
             <div>
                 <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--primary-color)]" style="font-family: var(--header-font);">Ahmad Kaukab Khan</h1>
                 <p class="text-lg md:text-xl font-semibold text-[var(--text-muted)] mt-1">System Administrator | Cybersecurity Specialist</p>
-            </div>
-            <div class="flex items-center space-x-3 mt-4 md:mt-0">
-                <button id="theme-toggle" title="Toggle Theme" class="p-2 rounded-full hover:bg-[var(--border-color)] text-[var(--text-muted)] no-print">
-                    <i data-lucide="sun" class="w-5 h-5"></i>
-                </button>
             </div>
         </header>
 
@@ -251,11 +253,15 @@
                 <section id="projects" class="mt-10 scroll-reveal">
                     <h2 class="section-title">Projects</h2>
                     <div id="open-project-modal" class="p-6 bg-[var(--bg-color)] rounded-lg cursor-pointer project-card">
-                        <div class="flex justify-between items-center">
+                        <div>
                             <h3 class="text-lg font-bold">GrowShare Capital LLC - Web Applications</h3>
-                            <span class="text-sm font-semibold text-[var(--primary-color)] flex items-center">View Details <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i></span>
+                            <p class="text-sm text-[var(--text-muted)] mt-2">Engineered and launched interactive web applications using a modern stack including React, Next.js, and TypeScript to enhance user engagement for a financial services company.</p>
                         </div>
-                        <p class="text-sm text-[var(--text-muted)] mt-2">Engineered and launched interactive web applications using a modern stack including React, Next.js, and TypeScript to enhance user engagement for a financial services company.</p>
+                        <div class="mt-4">
+                            <span class="text-sm font-semibold text-[var(--primary-color)] flex items-center">
+                                View Details <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                            </span>
+                        </div>
                     </div>
                 </section>
 
@@ -273,8 +279,8 @@
                             <i data-lucide="mail" class="w-5 h-5 flex-shrink-0"></i>
                             <span class="break-all">Khan.kaukab@icloud.com</span>
                         </a>
-                        <p class="flex items-center space-x-3 text-[var(--text-muted)]">
-                           <i data-lucide="map-pin" class="w-5 h-5 flex-shrink-0"></i>
+                        <p class="flex items-start space-x-3 text-[var(--text-muted)]">
+                           <i data-lucide="map-pin" class="w-5 h-5 flex-shrink-0 mt-0.5"></i>
                            <span>Hoover, Alabama 35226</span>
                         </p>
                         <a href="https://www.linkedin.com/in/kaukabkhan" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-3 text-[var(--text-muted)] hover:text-[var(--primary-color)]">
@@ -384,6 +390,12 @@
             </div>
         </div>
     </div>
+
+    <footer class="text-center py-6 mt-4 sm:mt-8">
+        <p class="text-sm text-[var(--text-muted)] no-print">
+            Created by Kaukab Khan &copy; 2025 | All Rights Reserved.
+        </p>
+    </footer>
 
 
     <script>
