@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmad Kaukab Khan | System Administrator & Cybersecurity Specialist</title>
+    <meta name="description" content="The interactive resume of Ahmad Kaukab Khan, a results-driven System Administrator and Cybersecurity Specialist with expertise in automation, security frameworks, and modern web development.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #212529;
+            --text-muted: #6c757d;
+            --primary-color: #0056b3;
+            --border-color: #dee2e6;
+            --header-font: 'Poppins', sans-serif;
+            --body-font: 'Lato', sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --primary-color: #4dabf7;
+            --border-color: #424242;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .section-title {
+            font-family: var(--header-font);
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--border-color);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 4px;
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            border: 3px solid var(--bg-color);
+            transition: border-color 0.3s;
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hover & Animation Effects */
+        .achievement-card, .timeline-entry, .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .achievement-card:hover, .timeline-entry:hover, .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        [data-theme="dark"] .achievement-card:hover, 
+        [data-theme="dark"] .timeline-entry:hover,
+        [data-theme="dark"] .project-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+
+        @media print {
+            body {
+                background-color: #fff;
+                color: #000;
+                font-size: 10pt;
+            }
+            :root { --primary-color: #000; }
+            .no-print { display: none; }
+            .print-container {
+                max-width: 100%;
+                padding: 0;
+                margin: 0;
+                box-shadow: none;
+                border: none;
+            }
+            .print-grid {
+                display: block;
+            }
+            .print-main, .print-sidebar {
+                width: 100%;
+                padding: 0;
+            }
+            a { text-decoration: none; color: inherit; }
+            .skill-badge {
+                border: 1px solid #ccc;
+                background-color: #f0f0f0;
+            }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+    <div class="max-w-6xl mx-auto my-8 p-4 sm:p-8 md:p-12 bg-[var(--card-bg)] rounded-2xl shadow-2xl print-container">
+        <!-- Header -->
+        <header class="flex flex-col md:flex-row justify-between items-center mb-12">
+            <div>
+                <h1 class="text-4xl md:text-5xl font-bold text-[var(--primary-color)]" style="font-family: var(--header-font);">Ahmad Kaukab Khan</h1>
+                <p class="text-xl font-semibold text-[var(--text-muted)] mt-1">System Administrator | Cybersecurity Specialist</p>
+            </div>
+            <div class="flex items-center space-x-3 mt-4 md:mt-0">
+                <button id="theme-toggle" title="Toggle Theme" class="p-2 rounded-full hover:bg-[var(--border-color)] text-[var(--text-muted)] no-print">
+                    <i data-lucide="sun" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 print-grid">
+            <!-- Left/Main Column -->
+            <main class="lg:col-span-2 print-main">
+                <!-- Profile Summary -->
+                <section id="about" class="scroll-reveal">
+                    <h2 class="section-title">Profile Summary</h2>
+                    <div class="space-y-4 text-[var(--text-muted)]">
+                        <p>A results-driven Lead System Administrator and Cybersecurity Specialist with over eight years of experience fortifying enterprise systems. Proven ability to reduce deployment times by 87% and boost efficiency by 95% through PowerShell and SCCM automation. Adept at orchestrating comprehensive security programmes, leveraging Tenable, EDR, and CyberArk to mitigate threat exposure by 40% while ensuring rigorous FISMA/NIST compliance. A strategic leader dedicated to mentoring high-performing teams and building resilient, security-first IT infrastructures.</p>
+                    </div>
+                </section>
+
+                <!-- Key Achievements -->
+                <section id="achievements" class="mt-10 scroll-reveal">
+                    <h2 class="section-title">Key Achievements</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex items-center p-4 bg-[var(--bg-color)] rounded-lg achievement-card">
+                            <i data-lucide="zap" class="w-8 h-8 text-[var(--primary-color)] mr-4"></i>
+                            <div>
+                                <p class="text-2xl font-bold">87%</p>
+                                <p class="text-sm text-[var(--text-muted)]">Reduction in Deployment Time</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-4 bg-[var(--bg-color)] rounded-lg achievement-card">
+                            <i data-lucide="trending-up" class="w-8 h-8 text-[var(--primary-color)] mr-4"></i>
+                            <div>
+                                <p class="text-2xl font-bold">95%</p>
+                                <p class="text-sm text-[var(--text-muted)]">Boost in Operational Efficiency</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-4 bg-[var(--bg-color)] rounded-lg achievement-card">
+                            <i data-lucide="shield" class="w-8 h-8 text-[var(--primary-color)] mr-4"></i>
+                            <div>
+                                <p class="text-2xl font-bold">40%</p>
+                                <p class="text-sm text-[var(--text-muted)]">Mitigation in Threat Exposure</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-4 bg-[var(--bg-color)] rounded-lg achievement-card">
+                            <i data-lucide="server" class="w-8 h-8 text-[var(--primary-color)] mr-4"></i>
+                            <div>
+                                <p class="text-2xl font-bold">3,000+</p>
+                                <p class="text-sm text-[var(--text-muted)]">Devices Managed & Secured</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Employment History -->
+                <section id="experience" class="mt-10 scroll-reveal">
+                    <h2 class="section-title">Employment History</h2>
+                    <div class="relative space-y-8 timeline">
+                        <!-- Job 1 -->
+                        <div class="relative pl-8 p-4 rounded-lg timeline-entry">
+                            <div class="timeline-dot"></div>
+                            <p class="text-sm font-bold text-[var(--text-muted)]">OCT 2024 - PRESENT</p>
+                            <h3 class="text-lg font-bold">System Administrator (Lead)</h3>
+                            <p class="font-semibold text-[var(--text-muted)]">Centers for Disease Control and Prevention | Morgantown, WV</p>
+                            <ul class="mt-2 list-disc list-inside text-[var(--text-muted)] text-sm space-y-1">
+                                <li>Spearheaded the design and implementation of an automated Windows 11 imaging process using PowerShell and SCCM, reducing deployment times by 87% and enforcing rigorous CDC cybersecurity baselines.</li>
+                                <li>Developed and maintained a suite of custom PowerShell and batch scripts to automate administrative tasks, boosting operational efficiency by 95% while minimising the risk of human error.</li>
+                                <li>Orchestrated patching and vulnerability remediation programmes using Tenable and Microsoft Azure, mitigating threat exposure by 40% and ensuring full compliance with FISMA and NIST standards.</li>
+                                <li>Successfully deployed and administered a bespoke Endpoint Detection & Response (EDR) solution to proactively identify, investigate, and neutralise threats across the enterprise.</li>
+                                <li>Leveraged the CyberArk platform to govern privileged access, strictly enforce the principle of least privilege, and meticulously monitor all elevated sessions to prevent misuse.</li>
+                                <li>Directed the secure migration of over 2,000 devices, guaranteeing seamless user transition while implementing full disk encryption and maintaining Federal compliance.</li>
+                            </ul>
+                        </div>
+                        <!-- Job 2 -->
+                        <div class="relative pl-8 p-4 rounded-lg timeline-entry">
+                            <div class="timeline-dot"></div>
+                            <p class="text-sm font-bold text-[var(--text-muted)]">JAN 2025 - PRESENT (PART-TIME)</p>
+                            <h3 class="text-lg font-bold">Web Developer & Technical Strategist</h3>
+                            <p class="font-semibold text-[var(--text-muted)]">GrowShare Capital LLC | Hoover, AL</p>
+                            <ul class="mt-2 list-disc list-inside text-[var(--text-muted)] text-sm space-y-1">
+                                <li>Engineered and launched interactive web applications using a modern stack including React, Next.js, TypeScript, JavaScript, HTML, and CSS, leveraging libraries like ShadCN UI and Recharts to enhance user engagement.</li>
+                                <li>Managed multiple GitHub repositories, implementing modular code structures and reusable frontend components to improve development velocity.</li>
+                                <li>Designed and configured scalable DNS and hosting environments, enabling reliable deployment and high-performance access across multiple subdomains.</li>
+                                <li>Leveraged AI platforms like Gemini via Genkit to rapidly prototype and build intelligent application features, including automated email services with Nodemailer.</li>
+                            </ul>
+                        </div>
+                         <!-- Job 3 -->
+                        <div class="relative pl-8 p-4 rounded-lg timeline-entry">
+                            <div class="timeline-dot"></div>
+                            <p class="text-sm font-bold text-[var(--text-muted)]">SEP 2021 - OCT 2024</p>
+                            <h3 class="text-lg font-bold">Information System Specialist II (Lead)</h3>
+                            <p class="font-semibold text-[var(--text-muted)]">University of Alabama at Birmingham | Birmingham, AL</p>
+                            <ul class="mt-2 list-disc list-inside text-[var(--text-muted)] text-sm space-y-1">
+                                <li>Orchestrated large-scale system deployments for over 3,000 devices, fortifying the university's security posture through meticulous Group Policy (GPO) management and stringent user access controls.</li>
+                                <li>Enhanced network security and organisation by managing VLANs and IP configurations, significantly reducing cross-segment vulnerabilities and improving traffic segmentation.</li>
+                                <li>Developed and deployed PowerShell and Bash automation scripts that reduced manual administrative tasks by 25%, ensuring consistent and secure adherence to IT protocols.</li>
+                            </ul>
+                        </div>
+                        <!-- Job 4 -->
+                        <div class="relative pl-8 p-4 rounded-lg timeline-entry">
+                            <div class="timeline-dot"></div>
+                            <p class="text-sm font-bold text-[var(--text-muted)]">JAN 2020 - SEP 2021</p>
+                            <h3 class="text-lg font-bold">Network Administrator</h3>
+                            <p class="font-semibold text-[var(--text-muted)]">Slappey Communications | Birmingham, AL</p>
+                            <ul class="mt-2 list-disc list-inside text-[var(--text-muted)] text-sm space-y-1">
+                                <li>Improved network reliability and performance by 20% through meticulous oversight of critical networking hardware, including switches, routers, and firewalls.</li>
+                                <li>Bolstered security and streamlined user access by administering Windows Active Directory, meticulously managing user accounts, Group Policies, and permissions in a multi-tenant environment.</li>
+                            </ul>
+                        </div>
+                        <!-- Job 5 -->
+                        <div class="relative pl-8 p-4 rounded-lg timeline-entry">
+                            <div class="timeline-dot"></div>
+                            <p class="text-sm font-bold text-[var(--text-muted)]">JAN 2017 - DEC 2020</p>
+                            <h3 class="text-lg font-bold">IT Support Specialist II</h3>
+                            <p class="font-semibold text-[var(--text-muted)]">Phone Clinic | Birmingham, AL</p>
+                            <ul class="mt-2 list-disc list-inside text-[var(--text-muted)] text-sm space-y-1">
+                                <li>Served as the primary escalation point for complex technical issues, resolving hardware, software, and network connectivity problems while maintaining a 95% user satisfaction rating.</li>
+                                <li>Strengthened device security by implementing foundational measures, including antivirus installation and standardized user permissions, to protect customer data from common threats.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects Section -->
+                <section id="projects" class="mt-10 scroll-reveal">
+                    <h2 class="section-title">Projects</h2>
+                    <div id="open-project-modal" class="p-6 bg-[var(--bg-color)] rounded-lg cursor-pointer project-card">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-lg font-bold">GrowShare Capital LLC - Web Applications</h3>
+                            <span class="text-sm font-semibold text-[var(--primary-color)] flex items-center">View Details <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i></span>
+                        </div>
+                        <p class="text-sm text-[var(--text-muted)] mt-2">Engineered and launched interactive web applications using a modern stack including React, Next.js, and TypeScript to enhance user engagement for a financial services company.</p>
+                    </div>
+                </section>
+
+            </main>
+
+            <!-- Right/Sidebar Column -->
+            <aside class="space-y-10 print-sidebar">
+                 <!-- Contact Info -->
+                <section class="scroll-reveal">
+                    <h2 class="section-title">Contact</h2>
+                    <div class="space-y-3 text-sm">
+                        <a href="tel:205-616-2945" class="flex items-center space-x-3 text-[var(--text-muted)] hover:text-[var(--primary-color)]">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                            <span>(205) 616-2945</span>
+                        </a>
+                        <a href="mailto:Khan.kaukab@icloud.com" class="flex items-center space-x-3 text-[var(--text-muted)] hover:text-[var(--primary-color)]">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                            <span>Khan.kaukab@icloud.com</span>
+                        </a>
+                        <p class="flex items-center space-x-3 text-[var(--text-muted)]">
+                           <i data-lucide="map-pin" class="w-5 h-5"></i>
+                           <span>Hoover, Alabama 35226</span>
+                        </p>
+                        <a href="https://www.linkedin.com/in/kaukabkhan" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-3 text-[var(--text-muted)] hover:text-[var(--primary-color)]">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            <span>linkedin.com/in/kaukabkhan</span>
+                        </a>
+                        <a href="https://github.com/jahana-cell" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-3 text-[var(--text-muted)] hover:text-[var(--primary-color)]">
+                            <i data-lucide="github" class="w-5 h-5"></i>
+                            <span>github.com/jahana-cell</span>
+                        </a>
+                    </div>
+                </section>
+                
+                <!-- Core Competencies -->
+                <section class="scroll-reveal">
+                    <h2 class="section-title">Core Competencies</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold mb-2">Cybersecurity & Defence</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">EDR</span>
+                                <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">Tenable</span>
+                                <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">CyberArk</span>
+                                <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">FISMA/NIST</span>
+                                <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">BitLocker</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2">System & Network Administration</h4>
+                             <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">Active Directory</span>
+                                <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">SCCM</span>
+                                <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">Microsoft Azure</span>
+                                <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">Group Policy</span>
+                            </div>
+                        </div>
+                         <div>
+                            <h4 class="font-bold mb-2">Automation & Scripting</h4>
+                             <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">PowerShell</span>
+                                <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">Bash</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-2">Programming & Web Development</h4>
+                             <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">React</span>
+                                <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">Next.js</span>
+                                <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">TypeScript</span>
+                                <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">Gemini AI</span>
+                             </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Education -->
+                <section class="scroll-reveal">
+                    <h2 class="section-title">Education</h2>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="text-sm font-bold">MSc, Management Information Systems</h4>
+                            <p class="text-xs text-[var(--text-muted)]">University of Alabama at Birmingham | 2024 | Cum Laude</p>
+                            <p class="text-xs text-[var(--text-muted)]">Concentration in Cybersecurity Management</p>
+                        </div>
+                         <div>
+                            <h4 class="text-sm font-bold">BSc, Information Systems</h4>
+                            <p class="text-xs text-[var(--text-muted)]">University of Alabama at Birmingham | 2020 | Cum Laude</p>
+                        </div>
+                         <div>
+                            <h4 class="text-sm font-bold">BA, Business Administration</h4>
+                            <p class="text-xs text-[var(--text-muted)]">Lawson State Community College | 2018 | Magna Cum Laude</p>
+                        </div>
+                    </div>
+                </section>
+
+            </aside>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-[var(--card-bg)] rounded-lg shadow-xl max-w-2xl w-full p-8 relative">
+            <button id="close-project-modal" class="absolute top-4 right-4 text-[var(--text-muted)] hover:text-[var(--text-color)]">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            <h3 class="text-2xl font-bold text-[var(--primary-color)] mb-4">Project: GrowShare Capital LLC Web Apps</h3>
+            <div class="space-y-4 text-[var(--text-muted)] text-sm">
+                <p>As the Web Developer and Technical Strategist, I was responsible for the end-to-end creation of several interactive web applications. This involved translating business requirements into high-performance, scalable, and user-friendly digital products.</p>
+                <div>
+                    <h4 class="font-bold text-[var(--text-color)] mb-2">Key Responsibilities:</h4>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Engineered and launched applications using React, Next.js, and TypeScript.</li>
+                        <li>Utilized libraries like ShadCN UI and Recharts to build engaging user interfaces.</li>
+                        <li>Managed GitHub repositories with modular code structures for improved development velocity.</li>
+                        <li>Designed and configured scalable DNS and hosting environments for reliable deployment.</li>
+                        <li>Leveraged Gemini AI via Genkit to prototype and build intelligent application features.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-[var(--text-color)] mb-2">Technologies Used:</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">React</span>
+                        <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">Next.js</span>
+                        <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">TypeScript</span>
+                        <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">ShadCN UI</span>
+                        <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">Gemini AI</span>
+                        <span class="skill-badge bg-[var(--border-color)] text-[var(--text-muted)] px-3 py-1 rounded-md text-sm">Nodemailer</span>
+                    </div>
+                </div>
+                 <!-- Add links if available -->
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Lucide Icons
+        lucide.createIcons();
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const sunIcon = '<i data-lucide="sun" class="w-5 h-5"></i>';
+        const moonIcon = '<i data-lucide="moon" class="w-5 h-5"></i>';
+        
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            body.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                themeToggle.innerHTML = moonIcon;
+            } else {
+                themeToggle.innerHTML = sunIcon;
+            }
+            lucide.createIcons();
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = sunIcon;
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = moonIcon;
+            }
+            lucide.createIcons();
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+        
+        // Project Modal Logic
+        const projectModal = document.getElementById('project-modal');
+        const openModalBtn = document.getElementById('open-project-modal');
+        const closeModalBtn = document.getElementById('close-project-modal');
+
+        const openModal = () => projectModal.classList.remove('hidden');
+        const closeModal = () => projectModal.classList.add('hidden');
+
+        openModalBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+        projectModal.addEventListener('click', (e) => {
+            if (e.target === projectModal) {
+                closeModal();
+            }
+        });
+
+    </script>
+</body>
+</html>
+
+
