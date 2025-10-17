@@ -172,8 +172,8 @@
                     </button>
                 </div>
             </div>
-            <!-- OPTIMIZATION: Contact info now stacks vertically on mobile and horizontally on larger screens for better readability -->
-            <div class="mt-4 flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-y-2 gap-x-6 text-sm text-[var(--text-muted)]">
+            <!-- OPTIMIZATION: Centered on mobile, left-aligned on larger screens for better aesthetics -->
+            <div class="mt-4 flex flex-col items-center text-center sm:flex-row sm:flex-wrap sm:text-left sm:justify-start gap-y-2 gap-x-6 text-sm text-[var(--text-muted)]">
                  <a href="mailto:khan.kaukab@icloud.com" class="flex items-center gap-2 hover:text-[var(--primary-color)] transition-colors"><i data-lucide="mail" class="w-4 h-4 flex-shrink-0"></i><span>khan.kaukab@icloud.com</span></a>
                  <a href="tel:205-616-2945" class="flex items-center gap-2 hover:text-[var(--primary-color)] transition-colors"><i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i><span>(205) 616-2945</span></a>
                  <a href="https://www.linkedin.com/in/kaukabkhan" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 hover:text-[var(--primary-color)] transition-colors"><i data-lucide="linkedin" class="w-4 h-4 flex-shrink-0"></i><span>linkedin.com/in/kaukabkhan</span></a>
@@ -361,9 +361,10 @@
             </div>
         </section>
 
-        <footer class="text-center py-6 mt-4 sm:mt-8">
+        <!-- OPTIMIZATION: Added border-top and adjusted padding for a cleaner footer presentation -->
+        <footer class="text-center pt-6 mt-8 border-t border-[var(--border-color)]">
             <p class="text-sm text-[var(--text-muted)] no-print">
-                Created by Ahmad Kaukab Khan &copy; 2025 | All Rights Reserved.
+                Created by Ahmad Kaukab Khan &copy; 2025 <span class="hidden sm:inline">|</span><br class="sm:hidden"> All Rights Reserved.
             </p>
         </footer>
     </div>
@@ -415,4 +416,5 @@
     </script>
 </body>
 </html>
+
 
